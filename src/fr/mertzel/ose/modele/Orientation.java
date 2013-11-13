@@ -1,3 +1,6 @@
+                                                                                                                                                                                                                                                                     
+
+
 package fr.mertzel.ose.modele;
 /** Orientations et conséquences
  * @since Janvier 2013
@@ -5,6 +8,7 @@ package fr.mertzel.ose.modele;
  * @version 0.2
  */
 public class Orientation {
+	
 	/** Orientation NORD
 	 */
 	public final static int NORD = 0 ;

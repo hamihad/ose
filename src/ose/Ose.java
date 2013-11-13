@@ -1,7 +1,7 @@
 package ose;
 
 import fr.mertzel.ose.vue.FenetrePrincipale;
-import fr.mertzel.ose.vue.PlanSalle;
+import fr.mertzel.ose.modele.PlanSalle;
 import fr.metzel.ose.controleur.Controleur;
 
 /** Application OSE

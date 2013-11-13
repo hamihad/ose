@@ -5,8 +5,9 @@ import java.awt.* ;
 import javax.swing.* ;
 
 import fr.mertzel.ose.modele.Orientation;
+import fr.mertzel.ose.modele.PlanSalle.Poste;
 import fr.mertzel.ose.modele.Position;
-import fr.mertzel.ose.vue.PlanSalle.Poste;
+import fr.mertzel.ose.modele.PlanSalle;
 
 
 
@@ -107,13 +108,17 @@ public class FenetrePrincipale extends JFrame {
 	 * @return Référence à l'item Ouvrir
 	 */
 	public JMenuItem getItemOuvrir(){
+		System.out.println("fenetre principale getitemouvri");
 		return this.itemOuvrir ;
+		
+		
 	}
 	
 	/** Obtenir une référence à l'item Enregistrer du menu Fichier
 	 * @return Référence à l'item Enregistrer
 	 */
 	public JMenuItem getItemEnregistrer(){
+		System.out.println("fenetreprincipale getitemenregistre");
 		return this.itemEnregistrer ;
 	}
 	
@@ -271,7 +276,7 @@ public class Plan extends JPanel {
 		BasicStroke pointilles = new BasicStroke(1,BasicStroke.CAP_BUTT,BasicStroke.JOIN_ROUND,1.0f,dash,2f) ;
 		g.setStroke(pointilles) ;
 		g.setColor(Color.red) ;
-		for(Poste poste : modele.listerPostes()){
+		for(Poste poste : modele){
 			int centreX = Parametres.centrePersonneX(poste.getPosition().getTravee(),poste.getOrientation()) ;
 			int centreY = Parametres.centrePersonneY(poste.getPosition().getRangee(),poste.getOrientation()) ;
 			for(Poste posteVisible : poste.getPostesVisibles()){

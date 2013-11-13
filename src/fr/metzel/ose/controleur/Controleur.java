@@ -8,7 +8,7 @@ import fr.mertzel.ose.modele.Orientation;
 import fr.mertzel.ose.modele.Position;
 import fr.mertzel.ose.vue.FenetrePrincipale;
 import fr.mertzel.ose.vue.Parametres;
-import fr.mertzel.ose.vue.PlanSalle;
+import fr.mertzel.ose.modele.PlanSalle;
 
 
 /** Contrôleur (MVC) de l'application

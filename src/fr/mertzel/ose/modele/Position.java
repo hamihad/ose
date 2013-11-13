@@ -19,6 +19,7 @@ import fr.mertzel.ose.vue.Parametres;
 		super();
 		this.rangee = rangee;
 		this.travee = travee;
+		System.out.println(" position modele");
 	}
 	
 	/** Contructeur (position non définie)
@@ -33,6 +34,7 @@ import fr.mertzel.ose.vue.Parametres;
 	 * @return Rangée de la position
 	 */
 	public int getRangee() {
+		System.out.println(" getrangee modele");
 		return rangee;
 	}
 	
@@ -40,6 +42,7 @@ import fr.mertzel.ose.vue.Parametres;
 	 * @param rangee Nouvelle rangée
 	 */
 	public void setRangee(int rangee) {
+		System.out.println(" setrangee modele");
 		this.rangee = rangee;
 	}
 	
@@ -47,6 +50,7 @@ import fr.mertzel.ose.vue.Parametres;
 	 * @return Travée d'une position
 	 */
 	public int getTravee() {
+		System.out.println("gettravee  modele");
 		return travee;
 	}
 	
@@ -54,6 +58,7 @@ import fr.mertzel.ose.vue.Parametres;
 	 * @param travee Nouvelle travée
 	 */
 	public void setTravee(int travee) {
+		System.out.println(" settravee modele");
 		this.travee = travee;
 	}
 	
@@ -62,6 +67,7 @@ import fr.mertzel.ose.vue.Parametres;
 	 * @return true si les deux positions sont identiques et false dans le cas contraire
 	 */
 	public boolean equals(Position position){
+		System.out.println(" equalposition  modele");
 		if(this.rangee == position.rangee && this.travee == position.travee){
 			return true ;
 		}
@@ -74,6 +80,7 @@ import fr.mertzel.ose.vue.Parametres;
 	 * @return Représentation textuelle d'une position
 	 */
 	public String toString(){
+		System.out.println("tosring rangee travee  modele");
 		return "("+rangee+","+travee+")" ;
 	}
 	
@@ -83,6 +90,7 @@ import fr.mertzel.ose.vue.Parametres;
 	 * @return Position voisinne
 	 */
 	public static Position voisin(Position origine,int orientation){
+		System.out.println(" position voisin  modele");
 		Position position = new Position() ;
 		switch(orientation){
 			case Orientation.NORD :
