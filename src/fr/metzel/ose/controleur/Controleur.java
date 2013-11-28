@@ -1,14 +1,18 @@
 package fr.metzel.ose.controleur;
 
 
-import java.awt.event.* ;
-import javax.swing.event.* ;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JOptionPane;
 
 import fr.mertzel.ose.modele.Orientation;
+import fr.mertzel.ose.modele.PlanSalle;
 import fr.mertzel.ose.modele.Position;
 import fr.mertzel.ose.vue.FenetrePrincipale;
 import fr.mertzel.ose.vue.Parametres;
-import fr.mertzel.ose.modele.PlanSalle;
 
 
 /** Contrôleur (MVC) de l'application
@@ -38,19 +42,35 @@ public class Controleur implements MouseListener, ActionListener {
 		vue.getItemPlacerOuest().addActionListener(this) ;
 		vue.getItemRetirer().addActionListener(this) ;
 		vue.getPlan().addMouseListener(this) ;
+		vue.getItempurger().addActionListener(this) ;
+		vue.getItemnommer().addActionListener(this) ;
 	}
 	
 	/** Traiter les événements liés au menu de l'application
 	 * @param evt Evénement à traiter
 	 */
 	public void actionPerformed(ActionEvent evt){
+		System.out.println("Controleur::actionPerformed()");
 		Object source = evt.getSource() ;
 		if(source == vue.getItemOuvrir()){
 			System.out.println("Ouvrir") ;
 		}
 		else if(source == vue.getItemEnregistrer()){
 			System.out.println("Enregistrer") ;
+	
 		}
+	
+	else if(source == vue.getItempurger()){
+		System.out.println("purger") ;
+		modele.purger();
+		}
+	else if(source == vue.getItemnommer()){
+		System.out.println("nommer") ;
+		modele.setNom ("nom");
+		String retour = JOptionPane.showInputDialog(vue, "le message", "VALEUR INITIALE");
+		modele.setNom (retour);
+		}
+	
 		else if(source == vue.getItemQuitter()){
 			System.out.println("Quitter") ;
 			System.exit(0) ;

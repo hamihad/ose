@@ -23,6 +23,7 @@ public class Plan extends JPanel implements Observateur {
 	}
 	
 	public void actualiser(){
+		System.out.println("Plan::actualiser()");
 		repaint() ;
 	}
 		
@@ -30,6 +31,7 @@ public class Plan extends JPanel implements Observateur {
 	 * @param g Contexte graphique
 	 */
 	public void paintComponent(Graphics g){
+		System.out.println("Plan::paintComponent()");
 		super.paintComponent(g) ;
 		Graphics2D g2d = (Graphics2D) g ;
 		this.quadriller(g2d) ;

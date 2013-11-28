@@ -9,6 +9,7 @@ abstract class SujetObserver {
 	private ArrayList<Observateur> lesObservateur = new ArrayList<Observateur>();
 	
 	public void ajouter(Observateur observateur){
+		System.out.println("SujetObserver::ajouter") ;
 		lesObservateur.add(observateur);
 	}
 	
@@ -17,6 +18,7 @@ abstract class SujetObserver {
 	}
  
 	public void notifier(){
+		System.out.println("SujetObserve::notifier()");
 		for (Observateur observateur :lesObservateur){
 			observateur.actualiser();
 		}

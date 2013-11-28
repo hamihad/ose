@@ -18,7 +18,7 @@ import java.awt.event.* ;
  * @author xilim
  * @version 0.2
  */
-public class FenetrePrincipale extends JFrame {
+public class FenetrePrincipale extends JFrame implements Observateur {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -29,6 +29,8 @@ public class FenetrePrincipale extends JFrame {
 	private JMenuItem itemOuvrir ;
 	private JMenuItem itemEnregistrer ;
 	private JMenuItem itemQuitter ;
+	private JMenuItem itempurger;
+	private JMenuItem itemnommer;
 	
 	private JPopupMenu menuActions ;
 	
@@ -61,6 +63,8 @@ public class FenetrePrincipale extends JFrame {
 		this.pack() ;
 		this.setLocationRelativeTo(null) ;
 		this.setVisible(true) ;
+		
+		modele.ajouter(this) ;
 	}
 	
 	/** Créer la barre de menus
@@ -73,17 +77,30 @@ public class FenetrePrincipale extends JFrame {
 		itemOuvrir = new JMenuItem("Ouvrir") ;
 		itemEnregistrer = new JMenuItem("Enregistrer") ;
 		itemQuitter = new JMenuItem("Quitter") ;
+		itemnommer = new JMenuItem("nommer");
 		menuFichier.add(itemNouveau) ;
 		menuFichier.add(itemOuvrir) ;
 		menuFichier.add(itemEnregistrer) ;
+		menuFichier.add(itemnommer) ;
 		menuFichier.addSeparator() ;
 		menuFichier.add(itemQuitter) ;
 		barreMenus.add(menuFichier) ;
+		
+		JMenu menuPurger = new JMenu("purger") ;
+		
+		itempurger = new JMenuItem("purger") ;
+		menuPurger.add(itempurger) ;
+		barreMenus.add(menuPurger) ;
+		
+	
 		
 		this.setJMenuBar(barreMenus) ;
 		itemNouveau.setEnabled(false) ;
 		itemOuvrir.setEnabled(false) ;
 		itemEnregistrer.setEnabled(false) ;
+		itempurger.setEnabled(true) ;
+		itemnommer.setEnabled(true);
+		
 	}
 	
 	/** Créer le menu contextuel
@@ -112,13 +129,22 @@ public class FenetrePrincipale extends JFrame {
 		return this.itemOuvrir ;
 		
 		
+	
 	}
 	
+	public JMenuItem getItempurger(){
+	
+		return this.itempurger;
+	}
+	public JMenuItem getItemnommer(){
+
+		return this.itemnommer;
+	}
 	/** Obtenir une référence à l'item Enregistrer du menu Fichier
 	 * @return Référence à l'item Enregistrer
 	 */
 	public JMenuItem getItemEnregistrer(){
-		System.out.println("fenetreprincipale getitemenregistre");
+
 		return this.itemEnregistrer ;
 	}
 	
@@ -174,6 +200,12 @@ public class FenetrePrincipale extends JFrame {
 	/** Rafraichir la représentation graphique du plan de salle
 	 */
 	public void visualiserPlan(){
+		this.plan.repaint() ;
+	}
+	public void actualiser(){
+		System.out.println("FenetrePrincipale::actualiser()");
+		String nom = modele.getNom() ;
+		this.setTitle(nom + " - OSE") ;
 		this.plan.repaint() ;
 	}
 	
